@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f1ec;
+    color: #2b2b2b;
+    scroll-padding-top: 270px;
+}
+
+main {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 3000;
+}
+
+.topBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 240px;
+    width: 100%;
+    background-image: linear-gradient(rgba(110, 110, 110, 0.5), rgba(114, 113, 113, 0.5)), url(../media/img/header-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    border-bottom: 3px solid hsl(45, 90%, 60%);
+    
+}
+
+.pointCompetenze {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: hsl(220, 60%, 30%);
+    border: none;
+    border-radius: 8px;
+    color: aliceblue;
+}
+
+nav {
+    font-size: 0.7em;
+        }
+    
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+    }
+
+.topBar h1 {
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    text-shadow: 2 3px 4px 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+.topBar p {
+    color: #f0e7c8;
+    font-style: italic;
+}
+
+.topBar ul li {
+    color: #e9ebee;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px;
+    border-radius: 5px;
+    padding-bottom: 8px;
+}
+
+
+
+
+.topBar ul li:not(:last-child) {
+    margin-right: 3px;
+}
+
+.topBar ul li a { 
+    color: #e9ebee;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5.5px; 
+}
+
+
+/*-------------------------- 
+            MAIN 
+----------------------------*/
+
+section {
+    border: 0.3px #e6e0d3;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    box-shadow: 1 4px 16px rgba(0, 0, 0, 0.06);
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+
+
+
+.imgPersonale {
+    background-image: url(../media/img/pexels-kampus-8353812.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid hsl(45, 90%, 60%);
+    margin-right: 8px;
+}
+
+.containerChiSono {
+    display: flex;
+    flex-direction: column;
+}
+
+.containerChiSono div:first-child {
+    align-self: center;
+}
+
+
+
+.containerChiSono p:first-of-type::first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 6px;
+    color: hsl(220, 60%, 30%);
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+h1::first-letter,
+.primaLettera,
+h3::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+
+.titleCompetenze {
+    color: hsl(220, 30%, 25%);
+    font-weight: bold;
+}
+
+
+h2 {
+    color: hsl(220, 60%, 25%);
+}
+
+h2::before {
+    content: '\2756';
+    color: hsl(45, 90%, 50%);
+    margin-right: 3px;
+}
+
+/* -----------------------------------------------
+        link per tornare SU e alla HOME
+-------------------------------------------------- */
+
+.returnHome {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.returnSu {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 3000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: hsl(220, 40%, 15%);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.returnHome i {
+    color: #2b2b2b;
+}
+
+.returnSu i {
+    color: #cec9c9;
+}
+
+/* -------------------------------
+        SEZIONE PROGETTI
+------------------------------- */
+
+
+.progect {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+    background-color: #e9ebee;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.progect:nth-child(even) {
+    border-left: 3px solid hsl(220, 60%, 30%);
+}
+
+.progect:nth-child(odd) {
+    border-left: 3px solid hsl(45, 90%, 50%);
+}
+
+.progectRicetta::after {
+    content: 'new';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: hsl(220, 60%, 30%);
+    border-radius: 0px 8px 0px 8px;
+    font-family:"Bungee Tint", sans-serif;
+    font-weight: 400;
+    padding: 4px 8px;
+}
+
+.gitHubLink {
+    text-decoration: none;
+    color: hsl(220, 60%, 30%);
+}
+
+.progectHome {
+    text-decoration: none;
+    color: hsl(220, 60%, 30%);
+    text-decoration: underline 2px hsl(45, 90%, 50%);
+    display: table;
+    margin-left: auto;
+    margin-top: 15px;
+}
+
+.progectHome i {
+    margin-right: 10px;
+}
+
+/* ------------------------
+        FORM
+------------------------         */
+label {
+    color: #1f3d7a;
+    font-weight: bold;
+}
+
+.marginLabel {
+    margin-top: 18px;
+}
+
+.input {
+    width: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    display: block;
+
+    border: 1px solid #d6cfbf;
+    border-radius: 4px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    background-color: #fbf8f1;
+    border: hsl(220, 60%, 30%)
+}
+
+#SceltaMultipla:focus {
+    background-color: #fbf8f1;
+    border: hsl(220, 60%, 30%)
+}
+
+
+.btnInvia {
+    color: aliceblue;
+    background-color: hsl(220, 60%, 30%);
+    width: 100%;
+    padding: 12px 24px;
+    border: none;
+    margin-top: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+
+footer {
+    width: 100%;
+    background-color: hsl(220, 40%, 15%);
+    color: #ffffff;
+    text-align: center;
+    padding: 3px;
+    height: 180px;
+    padding: 5px;
+}
+
+
+footer div {
+    font-size: 0.8em;
+    margin-left: 15px;
+    color: #cec9c9;
+}
+
+#userDati p {
+    font-size: 1em;
+}
+
+
+footer a i {
+    border: 5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    margin: 10px;
+    color: white;
+
+}
+
+
+
+footer p {
+    font-size: 0.7em;
+    margin-bottom: 10px;
+}
+
+
+.CenterForm {
+    margin: 0 auto;
+    width: 90%;
+}
+/* ------------------------
+       TABELLA  
+------------------------ */
+
+.TableCenter,
+.table {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#tableExp {
+    border-collapse: collapse;
+    color: black;
+}
+
+
+
+#tableExp thead tr {
+    color: hsl(220, 30%, 40%);
+}
+
+#tableExp thead tr th {
+    padding: 15px;
+    background-color: #f4f1ec;
+}
+
+#tableExp thead tr th:first-child {
+    background-color: #f4f1ec;
+    border-radius: 5px 0px 0px 0px;
+}
+
+#tableExp thead tr th:nth-of-type(3) {
+    background-color: #f4f1ec;
+    border-radius: 0px 5px 0px 0px;
+}
+
+.overlay {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 5000;
+}
+
+.modal {
+	position: absolute;
+    
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 25px;
+	border-radius: 10px;
+	max-width: 480px;
+}
+
+#btnCloseModal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: none;
+    border: none;
+    margin-top: 8px;
+    margin-right: 3px;
+    cursor: pointer;
+    
+}
+
+
+@media screen and (min-width: 768px) {
+    main {
+        max-width: 80%;
+    }
+
+    .progect {
+        width: 45%;
+    }
+
+    .progectRicetta::after {
+        font-size: 0.77em;
+    }
+
+    .containerChiSono {
+        display: flex;
+        justify-content: start;
+        gap: 30px;     
+        align-items: start;  
+    }
+
+    .paragrafoChiSono {
+        width: 80%;
+    }
+
+.containerProgect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.containerProgect div:last-child {
+    flex: 1;
+}
+   footer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    height: 120px;
+   } 
+
+  
+
+    
+    .input {
+        width: 50%;
+    }
+
+    .btnInvia {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    label {
+        font-size: 0.7em;
+    }
+
+    table{
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  nav {
+    font-size: 1.2em;
+  }
+
+ .returnHome i:hover {
+    padding: 1px 0px;
+    color: hsl(220, 60%, 20%);
+    background-color: hsl(45, 90%, 60%);
+    border: 9px solid hsl(45, 90%, 60%);
+    border-radius: 50%;
+    transition: 0.2s;
+} 
+
+ .returnSu:hover {
+    color: hsl(220, 60%, 20%);
+    background-color: hsl(45, 90%, 60%);
+    border-radius: 50%;
+    transition: 0.2s;
+} 
+
+ .returnSu i:hover {
+    color: #1f3d7a;
+ }
+
+.btnInvia:hover {
+    cursor: pointer;
+    background-color: hsl(220, 60%, 45%);
+    padding: 12px 24px;
+    box-shadow: 3px 3px 8px rgb(36, 36, 36);
+} 
+
+ .btnInvia:active {
+    size: 1em;
+    box-shadow: 1px 1px 2px rgb(36, 36, 36);
+    background-color: hsl(220, 60%, 30%);
+} 
+ footer a i:hover {
+    color: #142952;
+    background-color: hsl(45, 90%, 60%);
+    border: 5px solid hsl(45, 90%, 60%);
+    border-radius: 50%;
+} 
+
+.progectHome:hover {
+    color: hsl(220, 60%, 45%);
+} 
+
+.topBar ul li:hover {
+    border: hsl(45, 90%, 60%);
+    background-color: hsl(45, 90%, 60%);
+    padding-bottom: 9px;
+
+} 
+ .topBar ul li a:hover {
+    color: #2b2b2b;
+} 
+
+}
