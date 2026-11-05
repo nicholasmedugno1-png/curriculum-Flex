@@ -7,6 +7,16 @@
     box-sizing: border-box;
 }
 
+  /* effettuato ricerca perche scritto come in classe non funzionava  
+ body:has(.overlay[style*="display: block"]) {  verifichiamo se body ha un figlio con classe .overlay e controlliamo se lo style ha l attributo block
+    overflow: hidden;    *= serve a verificare se contiene la stringa di testo indicata
+}   in pratica quando js modifica l attributo style in block il css trova block e has si attiva 
+ potevamo assegnare una classe per evitare il controllo con *= semplicemente controllondo se la classe e aperta */
+
+body:has(.overlay.modalOpen) { 
+    overflow: hidden;
+}
+
 html,
 body {
     font-family: 'Inter', Arial, sans-serif;
@@ -17,15 +27,40 @@ body {
     scroll-padding-top: 270px;
 }
 
+
+
 main {
     max-width: 80%;
     margin: 0 auto;
+    animation: refresh 2s;
+}
+
+@keyframes refresh {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 2.5;
+    }
+
+    50% {
+        opacity: 5;
+    }
+
+    75% {
+        opacity: 7.5;
+    }
+
+    100% {
+        opacity: 10;
+    }
 }
 
 header {
     position: sticky;
     top: 0;
-    z-index: 3000;
+    z-index: 2000;
 }
 
 .topBar {
@@ -41,7 +76,7 @@ header {
     background-position: center;
     text-align: center;
     border-bottom: 3px solid hsl(45, 90%, 60%);
-    
+
 }
 
 .pointCompetenze {
@@ -60,16 +95,16 @@ button {
 
 nav {
     font-size: 0.7em;
-        }
-    
-    nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        gap: 5px;
-        flex-wrap: wrap;
-        padding: 0;
-    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    padding: 0;
+}
 
 .topBar h1 {
     color: #ffffff;
@@ -89,8 +124,8 @@ nav {
     padding: 6px;
     border-radius: 5px;
     padding-bottom: 8px;
-}
 
+}
 
 
 
@@ -98,12 +133,14 @@ nav {
     margin-right: 3px;
 }
 
-.topBar ul li a { 
+.topBar ul li a {
     color: #e9ebee;
     font-weight: bold;
     text-decoration: none;
-    padding: 5.5px; 
+    padding: 5.5px;
 }
+
+
 
 
 /*-------------------------- 
@@ -186,17 +223,40 @@ h2::before {
 }
 
 .returnSu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     right: 10px;
     bottom: 10px;
     z-index: 3000;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    padding: 10px;
+    width: 35px;
+    height: 35px;
+    /* padding: 8px; */
     background-color: hsl(220, 40%, 15%);
-    text-align: center;
-    margin-bottom: 5px;
+    /* text-align: center; */
+    /* margin-bottom: 5px; */
+    animation: pulsSu 1s alternate infinite ease-in-out;
+}
+
+
+@keyframes pulsSu {
+    0% {
+        box-shadow: 0 0 0 1 hsl(220, 60%, 45%, 0.1);
+    }
+
+    25% {
+        box-shadow: 0 0 0 2 hsl(220, 60%, 45%, 0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 0 3px hsla(220, 60%, 45%, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 0 4px hsla(220, 60%, 45%, 0.4);
+    }
 }
 
 .returnHome i {
@@ -232,14 +292,50 @@ h2::before {
 .progectRicetta::after {
     content: 'new';
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 0px;
+    right: 0px;
     background-color: hsl(220, 60%, 30%);
     border-radius: 0px 8px 0px 8px;
-    font-family:"Bungee Tint", sans-serif;
+    font-family: "Bungee Tint", sans-serif;
     font-weight: 400;
     padding: 4px 8px;
+    font-size: 0.6em;
+    animation: puls 1.5s normal infinite ease-in-out;
+
 }
+
+@keyframes puls {
+    0% {
+        font-size: 0.6em;
+        padding-left: 8px;
+        padding-bottom: 6px;
+    }
+
+    25% {
+        font-size: 0.65em;
+        padding-left: 9px;
+        padding-bottom: 7px;
+    }
+
+    50% {
+        font-size: 0.7em;
+        padding-left: 10px;
+        padding-bottom: 8px;
+    }
+
+    75% {
+        font-size: 0.65em;
+        padding-left: 9px;
+        padding-bottom: 7px;
+    }
+
+    100% {
+        font-size: 0.6em;
+        padding-left: 8px;
+        padding-bottom: 6px;
+    }
+}
+
 
 .gitHubLink {
     text-decoration: none;
@@ -349,6 +445,7 @@ footer p {
     margin: 0 auto;
     width: 90%;
 }
+
 /* ------------------------
        TABELLA  
 ------------------------ */
@@ -387,25 +484,27 @@ footer p {
 }
 
 .overlay {
-	display: none;
-	position: fixed;
-	inset: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-	z-index: 5000;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5000;
 }
 
+.overlay.modalOpen {
+    display: block;
+}
 .modal {
-	position: absolute;
-    
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: white;
-	padding: 25px;
-	border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
     width: 70%;
-    height: 90%;
-	max-width: 480px;
+    max-width: 480px;
+
 }
 
 #btnCloseModal {
@@ -417,8 +516,9 @@ footer p {
     margin-top: 8px;
     margin-right: 3px;
     cursor: pointer;
-    
+
 }
+
 
 
 @media screen and (min-width: 768px) {
@@ -438,33 +538,34 @@ footer p {
         display: flex;
         flex-direction: row;
         justify-content: start;
-        gap: 30px;     
-        align-items: start;  
+        gap: 30px;
+        align-items: start;
     }
 
     .paragrafoChiSono {
         width: 80%;
     }
 
-.containerProgect {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-}
+    .containerProgect {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
 
-.containerProgect div:last-child {
-    flex: 1;
-}
-   footer {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-around;
-    height: 120px;
-   } 
+    .containerProgect div:last-child {
+        flex: 1;
+    }
 
-  
+    footer {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        height: 120px;
+    }
 
-    
+
+
+
     .input {
         width: 50%;
     }
@@ -479,70 +580,88 @@ footer p {
         font-size: 0.7em;
     }
 
-    table{
-    margin: 0 auto;
-    width: 100%;
-  }
+    table {
+        margin: 0 auto;
+        width: 100%;
+    }
 
-  nav {
-    font-size: 1.2em;
-  }
+    nav {
+        font-size: 1.2em;
+    }
 
- .returnHome i:hover {
-    padding: 1px 0px;
-    color: hsl(220, 60%, 20%);
-    background-color: hsl(45, 90%, 60%);
-    border: 9px solid hsl(45, 90%, 60%);
-    border-radius: 50%;
-    transition: 0.2s;
-} 
+    .returnHome i:hover {
+        padding: 1px 0px;
+        color: hsl(220, 60%, 20%);
+        background-color: hsl(45, 90%, 60%);
+        border: 9px solid hsl(45, 90%, 60%);
+        border-radius: 50%;
+        transition: 0.2s;
+    }
 
- .returnSu:hover {
-    color: hsl(220, 60%, 20%);
-    background-color: hsl(45, 90%, 60%);
-    border-radius: 50%;
-    transition: 0.2s;
-} 
+    .returnSu:hover {
+        color: hsl(220, 60%, 20%);
+        background-color: hsl(45, 90%, 60%);
+        border-radius: 50%;
+        transition: 0.2s;
+    }
 
- .returnSu i:hover {
-    color: #1f3d7a;
- }
+    .returnSu i:hover {
+        color: #1f3d7a;
+    }
 
-.btnInvia:hover {
-    cursor: pointer;
-    background-color: hsl(220, 60%, 45%);
-    padding: 12px 24px;
-    box-shadow: 3px 3px 8px rgb(36, 36, 36);
-} 
+    .btnInvia:hover {
+        cursor: pointer;
+        background-color: hsl(220, 60%, 45%);
+        padding: 12px 24px;
+        box-shadow: 3px 3px 8px rgb(36, 36, 36);
+    }
 
- .btnInvia:active {
-    size: 1em;
-    box-shadow: 1px 1px 2px rgb(36, 36, 36);
-    background-color: hsl(220, 60%, 30%);
-} 
- footer a i:hover {
-    color: #142952;
-    background-color: hsl(45, 90%, 60%);
-    border: 5px solid hsl(45, 90%, 60%);
-    border-radius: 50%;
-} 
+    .btnInvia:active {
+        size: 1em;
+        box-shadow: 1px 1px 2px rgb(36, 36, 36);
+        background-color: hsl(220, 60%, 30%);
+    }
 
-.progectHome:hover {
-    color: hsl(220, 60%, 45%);
-} 
+    .progect:hover {
+        transform: translateY(-5px);
+        transition: 500ms;
+        box-shadow: 1px 1px 8px rgb(0, 0, 0, 0.2);
+    }
 
-.topBar ul li:hover {
-    border: hsl(45, 90%, 60%);
-    background-color: hsl(45, 90%, 60%);
-    padding-bottom: 9px;
+    footer a i:hover {
+        color: #142952;
+        background-color: hsl(45, 90%, 60%);
+        border: 5px solid hsl(45, 90%, 60%);
+        border-radius: 50%;
+    }
 
-} 
- .topBar ul li a:hover {
-    color: #2b2b2b;
-} 
+    .progectHome:hover {
+        color: hsl(220, 60%, 45%);
+    }
 
-#btnCloseModal:hover {
-    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1);
-}
+    .topBar ul li:hover {
+        border: hsl(45, 90%, 60%);
+        background-color: hsl(45, 90%, 60%);
+        padding-bottom: 9px;
+        transform: translateY(-2px);
+        transition: 1000ms;
+        box-shadow: 1px 1px 8px rgb(0, 0, 0, 0.4);
+    }
+
+    .pointCompetenze button:hover {
+        transform: translateY(-5px);
+        box-shadow: 2px 2px 4px rgb(0, 0, 0, 0.4);
+        background-color: hsl(45, 90%, 60%);
+        color: #2b2b2b;
+        font-weight: 400;
+    }
+
+    .topBar ul li a:hover {
+        color: #2b2b2b;
+    }
+
+    #btnCloseModal:hover {
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    }
 
 }

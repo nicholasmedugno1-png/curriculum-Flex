@@ -4,11 +4,12 @@ const overlay = document.querySelector('.overlay');
 const btnInvia = document.querySelector('#btnInvia');
  const myForm = document.querySelector('form')
 btnOpenModal.addEventListener('click', (e) => {
-  overlay.style.display = 'block';
+  overlay.classList.add('modalOpen')
+  
 });
 
 btnCloseModal.addEventListener('click', (e) => {
-  overlay.style.display = 'none';
+   overlay.classList.remove('modalOpen')
 });
 
 const nameUser = document.querySelector('#nameUser')
@@ -35,12 +36,12 @@ const datiUser = {
 	emailRes.textContent = datiUser.userEmail;
 	dateRes.textContent = datiUser.rispData;
 	myForm.reset();
-	overlay.style.display = 'none';
+	 overlay.classList.remove('modalOpen')
 });
 
 
 window.addEventListener('click', (e) => {
     if(e.target === overlay){
-        overlay.style.display = 'none';
+        overlay.classList.remove('modalOpen')
     }
 })
